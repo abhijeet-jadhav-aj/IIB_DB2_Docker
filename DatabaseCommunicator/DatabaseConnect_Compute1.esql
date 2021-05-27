@@ -5,7 +5,7 @@ CREATE COMPUTE MODULE DatabaseConnect_Compute1
 	BEGIN
 		-- CALL CopyMessageHeaders();
 		-- CALL CopyEntireMessage();
-		SET OutputRoot.JSON.Data.UserEmail = InputRoot.JSON.Data.UserEmail;--Comment added
+		SET OutputRoot.JSON.Data.UserEmail = InputRoot.JSON.Data.UserEmail;--Comment added!@
 		RETURN TRUE;
 	END;
 
