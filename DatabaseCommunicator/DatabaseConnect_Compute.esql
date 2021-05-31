@@ -4,7 +4,7 @@ CREATE COMPUTE MODULE DatabaseConnect_Compute
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		-- CALL CopyMessageHeaders();
-		-- CALL CopyEntireMessage();Comment added##
+		-- CALL CopyEntireMessage();Comment added#
 		RETURN TRUE;
 	END;
 
