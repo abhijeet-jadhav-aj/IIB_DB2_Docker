@@ -11,7 +11,7 @@ CREATE COMPUTE MODULE AddSub_Flow_Compute
 		-- Operator stored in character variable
 		DECLARE cOperator CHARACTER InputRoot.XMLNSC.Input.OPER;
 		
-		-- Depends on operator type, logic sets Result value!!
+		-- Depends on operator type, logic sets Result value!!!
 		IF UPPER(cOperator) = 'SUB' THEN
 			SET OutputRoot.XMLNSC.Result = nVal1 - nVal2;
 		ELSEIF UPPER(cOperator) = 'ADD' THEN
