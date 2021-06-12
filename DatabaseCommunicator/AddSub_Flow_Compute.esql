@@ -1,0 +1,35 @@
+
+
+CREATE COMPUTE MODULE AddSub_Flow_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		-- CALL CopyEntireMessage();
+		DECLARE nVal1 INTEGER InputRoot.XMLNSC.Input.VAL1;
+		DECLARE nVal2 INTEGER InputRoot.XMLNSC.Input.VAL2;
+		DECLARE cOperator CHARACTER InputRoot.XMLNSC.Input.OPER;
+		
+		IF UPPER(cOperator) = 'SUB' THEN
+			SET OutputRoot.XMLNSC.Result = nVal1 - nVal2;
+		ELSEIF UPPER(cOperator) = 'ADD' THEN
+			SET OutputRoot.XMLNSC.Result = nVal1 + nVal2;
+		END IF;
+		
+		
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;
