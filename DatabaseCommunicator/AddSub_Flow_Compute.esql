@@ -5,6 +5,7 @@ CREATE COMPUTE MODULE AddSub_Flow_Compute
 	BEGIN
 		-- CALL CopyMessageHeaders();
 		-- CALL CopyEntireMessage();
+		-- VAL1 and VAL2 stored in integer variables
 		DECLARE nVal1 INTEGER InputRoot.XMLNSC.Input.VAL1;
 		DECLARE nVal2 INTEGER InputRoot.XMLNSC.Input.VAL2;
 		DECLARE cOperator CHARACTER InputRoot.XMLNSC.Input.OPER;
